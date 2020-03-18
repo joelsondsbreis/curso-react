@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import Table from './Table';
 
-function App() {
+class App extends Component {
 
-  const authors = [
+ state = {
+
+   authors: [
     {
       nome: 'Mateus',
       livro: 'React',
@@ -25,12 +27,17 @@ function App() {
       livro: 'DevOps',
       preco: '100'
     }
-  ];
-  return (
-    <div className="App">
-      <Table authors = { authors } />
-    </div>
-  );
+  ],
+ };
+
+  render() {
+    return (
+      <div className="App">
+        <Table authors = { this.state.authors } />
+      </div>
+    );
+  }
+  
 }
 
 export default App;
