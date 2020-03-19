@@ -50,7 +50,7 @@ class App extends Component {
       <Fragment>
         <Table authors={this.state.authors} removeAuthor={this.removeAuthor} />
         <Form />
-      </Fragment>
+      </Fragment> 
 
     );
   }

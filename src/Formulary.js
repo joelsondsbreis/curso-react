@@ -15,6 +15,14 @@ class Formulary extends Component {
         this.state = this.stateInit;
     }
 
+    listenInput = event => {
+        const { name, value } = event.target;
+
+        this.setState({
+            [name] : value
+        });
+    }
+
     render() {
 
         const { nome, livro, preco } = this.state;
@@ -29,6 +37,7 @@ class Formulary extends Component {
                     type="text"
                     name="nome"
                     value={nome}
+                    onChange = {this.listenInput}
                 />
 
                 <label htmlFor="livro">Livro</label>
@@ -37,6 +46,7 @@ class Formulary extends Component {
                     type="text"
                     name="livro"
                     value={livro}
+                    onChange = {this.listenInput}
                 />
 
 
@@ -46,6 +56,7 @@ class Formulary extends Component {
                     type="text"
                     name="preco"
                     value={preco}
+                    onChange = {this.listenInput}
                 />
 
 
