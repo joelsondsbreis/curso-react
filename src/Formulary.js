@@ -23,6 +23,12 @@ class Formulary extends Component {
         });
     }
 
+    submitFormulary = () => {
+
+         this.props.listenSubmit(this.state);
+         this.setState(this.stateInit);
+    }
+
     render() {
 
         const { nome, livro, preco } = this.state;
@@ -60,8 +66,7 @@ class Formulary extends Component {
                 />
 
 
-                <button type="button">Salvar
-    </button>
+                <button onClick={this.submitFormulary} type="button">Salvar</button>
             </form>
         )
     }

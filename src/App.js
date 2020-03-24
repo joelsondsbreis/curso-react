@@ -43,13 +43,18 @@ class App extends Component {
         }),
       }
     );
-  };
+  }
+
+  listenSubmit = author => {
+
+    this.setState({ authors: [...this.state.authors, author]})
+  }
 
   render() {
     return (
       <Fragment>
         <Table authors={this.state.authors} removeAuthor={this.removeAuthor} />
-        <Form />
+        <Form listenSubmit={this.listenSubmit}/>
       </Fragment> 
 
     );
