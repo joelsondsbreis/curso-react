@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
-
+import FormValidator from './FormValidator';
 class Formulary extends Component {
 
     constructor(props) {
         super(props);
+
+        this.validator = new FormValidator({
+            field: 'nome',
+            method: 'isEmpty' 
+        });
 
         this.stateInit = {
 
@@ -25,8 +30,10 @@ class Formulary extends Component {
 
     submitFormulary = () => {
 
-        this.props.listenSubmit(this.state);
-        this.setState(this.stateInit);
+        if (this.validator.validate(this.state)) {
+            this.props.listenSubmit(this.state);
+            this.setState(this.stateInit);
+        }  
     }
 
     render() {
@@ -36,7 +43,7 @@ class Formulary extends Component {
         return (
 
             <form>
-                <div className="row"> 
+                <div className="row">
                     <div className="input-field col s4">
                         <label className="input-field" htmlFor="nome">Nome</label>
                         <input
